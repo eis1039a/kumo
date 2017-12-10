@@ -29,7 +29,7 @@ module.exports = {
                         callback(error, null);
                     } else if (response.statusCode === 200) {
                         var $ = cheerio.load(body);
-                        var new_content = dest + os.EOL + $('.titled_box').first().children().nextUntil('hr').text().toString();
+                        var new_content = dest + os.EOL + $('.titled_box').first().children().first().nextUntil('hr').text().toString();
                         if (new_content != content) {
                             fs.writeFile(FILE_PATH, new_content, function (error) {
                                 if (error) {
