@@ -1,6 +1,6 @@
 {
   "name": "kumo",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "test.js",
   "scripts": {
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/eis1039a/kumo#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "cheerio": "^1.0.0-rc.2",
+    "node-datetime": "^2.0.3",
     "request": "^2.83.0"
   }
 }

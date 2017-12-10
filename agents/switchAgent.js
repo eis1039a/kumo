@@ -1,11 +1,11 @@
 "use strict";
 
 var fs = require('fs');
-var file_path = './agents/switchAgent.dat';
+const FILE_PATH = './agents/switchAgent.dat';
 
 module.exports = {
     getNotificationContent: function (callback) {
-        fs.readFile(file_path, function (error, data) {
+        fs.readFile(FILE_PATH, function (error, data) {
             if (error) {
                 callback(error, null);
             } else {
@@ -16,6 +16,7 @@ module.exports = {
     needNotification: function (callback) {
         var request = require('request');
         var cheerio = require('cheerio');
+        var os = require('os');
 
         var dest = "http://www.salariedman.com/archives/207";
 
@@ -28,9 +29,9 @@ module.exports = {
                         callback(error, null);
                     } else if (response.statusCode === 200) {
                         var $ = cheerio.load(body);
-                        var new_content = $('.titled_box').first().children().nextUntil('hr').text().toString();
+                        var new_content = dest + os.EOL + $('.titled_box').first().children().nextUntil('hr').text().toString();
                         if (new_content != content) {
-                            fs.writeFile(file_path, new_content, function (error) {
+                            fs.writeFile(FILE_PATH, new_content, function (error) {
                                 if (error) {
                                     callback(error, null);
                                 } else {
@@ -49,5 +50,3 @@ module.exports = {
         });
     }
 };
-
-
