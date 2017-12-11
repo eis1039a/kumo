@@ -3,7 +3,7 @@
 
 module.exports = {
     sendMessage: function (message, callback) {
-        const lineConfig = require('./lineConfig.json');
+        const lineConfig = require(__dirname + '/lineConfig.json');
         const NOTIFY_TOKEN = lineConfig.notify_token;
 
         const axios = require('axios');

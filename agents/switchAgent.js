@@ -1,7 +1,7 @@
 "use strict";
 
 var fs = require('fs');
-const FILE_PATH = './agents/switchAgent.dat';
+const FILE_PATH = __dirname + '/switchAgent.dat';
 
 module.exports = {
     getNotificationContent: function (callback) {
