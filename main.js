@@ -30,7 +30,7 @@ var execute = function () {
                     }
                 });
             } else {
-                //logger('no need to notify');
+                logger('no need to notify');
             }
         }
     });
